@@ -3,7 +3,7 @@ import App from './App.vue'
 
 // vuetify
 import { createVuetify } from 'vuetify';
-import 'vuetify/styles'; // 引入 Vuetify CSS
+import 'vuetify/styles'; // 引入 Vuetify 样式
 import '@mdi/font/css/materialdesignicons.css'; // 引入 Material Design Icons
 const vuetify = createVuetify();
 
@@ -25,5 +25,5 @@ const router = createRouter({
 
 createApp(App)
     .use(router)  // 使用 router
-    .use(vuetify) // 使用 Vuetify
+    .use(vuetify) // 註冊 Vuetify
     .mount('#app');

@@ -9,7 +9,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
-import 'vuetify/styles';
+import { VBtn } from 'vuetify/components';  // 正確引入 Vuetify 的 VBtn
+import 'vuetify/styles'
+import '@mdi/font/css/materialdesignicons.css'
 
 const router = useRouter();
 

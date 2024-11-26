@@ -1,10 +1,10 @@
 <template>
-	<v-app>
-		<v-main>
-			<navBer />
+	<div>
+		<navBer />
+		<main>
 			<router-view />
-		</v-main>
-	</v-app>
+		</main>
+	</div>
 </template>
 
 <script setup>
