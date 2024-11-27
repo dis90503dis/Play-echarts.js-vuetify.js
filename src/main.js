@@ -17,11 +17,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import home from './view/home.vue'
 import about from './view/about.vue'
 import vuetifyjs from './view/vuetifyjs.vue'
+import chatbox from './view/chatbox.vue'
 const routes = [
     { path: '/', component: home },
     { path: '/home', component: home },
     { path: '/about', component: about },
     { path: '/vuetifyjs', component: vuetifyjs },
+    { path: '/chatbox', component: chatbox },
 ];
 const router = createRouter({
     history: createWebHistory(),

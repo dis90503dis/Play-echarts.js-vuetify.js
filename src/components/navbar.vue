@@ -1,19 +1,12 @@
 <template>
-	<v-app style="height: 68px; margin-bottom: 10px;" :theme="theme">
-		<v-app-bar class="px-3 ">
-			<div class="nav_bar">
-				<div class="nav">
-					<v-btn class="no-uppercase" variant="outlined" v-for="(item, index) in navTitle" :key="index"
-						@click="goPage(item.src)">
-						{{ item.name }}
-					</v-btn>
-				</div>
-				<v-btn :prepend-icon="theme === 'light' ? 'mdi-weather-night' : 'mdi-weather-sunny'"
-					:text="theme === 'light' ? '深夜' : '明亮'" slim @click="onClick">
-				</v-btn>
-			</div>
-		</v-app-bar>
-	</v-app>
+	<div class="nav_bar">
+		<div class="nav">
+			<v-btn class="no-uppercase" variant="outlined" v-for="(item, index) in navTitle" :key="index"
+				@click="goPage(item.src)">
+				{{ item.name }}
+			</v-btn>
+		</div>
+	</div>
 </template>
 
 <script setup>
@@ -29,15 +22,12 @@ const navTitle = ref([
 	{ name: '首頁', src: '/home' },
 	{ name: 'Vuetify.js  登入談窗以及全屏Loading', src: '/vuetifyjs' },
 	{ name: '關於我們', src: '/about' },
+	{ name: '宋瑋', src: '/chatbox' },
 ]);
 
 const goPage = (path) => {
 	router.push(path);
 };
-const theme = ref('light')
-const onClick = () => {
-	theme.value = theme.value === 'light' ? 'dark' : 'light'
-}
 </script>
 
 <style scoped>
