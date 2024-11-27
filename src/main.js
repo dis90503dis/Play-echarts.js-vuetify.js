@@ -2,21 +2,26 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 // vuetify
+import 'vuetify/styles';
 import { createVuetify } from 'vuetify';
-import 'vuetify/styles'; // 引入 Vuetify 样式
-import '@mdi/font/css/materialdesignicons.css'; // 引入 Material Design Icons
-const vuetify = createVuetify();
+import * as components from 'vuetify/components'; // 導入所有組件
+import * as directives from 'vuetify/directives'; // 導入所有指令
+
+const vuetify = createVuetify({
+    components,
+    directives,
+});
 
 // router
 import { createRouter, createWebHistory } from 'vue-router'
 import home from './view/home.vue'
 import about from './view/about.vue'
-import news from './view/news.vue'
+import vuetifyjs from './view/vuetifyjs.vue'
 const routes = [
     { path: '/', component: home },
     { path: '/home', component: home },
     { path: '/about', component: about },
-    { path: '/news', component: news },
+    { path: '/vuetifyjs', component: vuetifyjs },
 ];
 const router = createRouter({
     history: createWebHistory(),
