@@ -22,7 +22,7 @@ const navTitle = ref([
 	{ name: '首頁', src: '/home' },
 	{ name: 'Vuetify.js  登入談窗以及全屏Loading', src: '/vuetifyjs' },
 	{ name: '關於我們', src: '/about' },
-	{ name: '宋瑋', src: '/chatbox' },
+	{ name: 'ChatBox', src: '/chatbox' },
 ]);
 
 const goPage = (path) => {
@@ -32,6 +32,7 @@ const goPage = (path) => {
 
 <style scoped>
 .nav {
+	margin-left: 12px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;

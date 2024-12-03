@@ -1,30 +1,26 @@
 <template>
-
-	<body>
-		<section class="member-message">
-			<div class="message-box text-center text-xl">
-				<div class="chat-box">
-					<nav class="message-nav p-[10px]">Bonny & Read 飾品</nav>
-					<div class="chatContent">
-						<ul>
-							<li v-for="(message, index) in messages" :key="index"
-								:class="message.isUser ? 'umsg' : 'smsg'" class="message-item">
-								{{ message.text }}
-							</li>
-						</ul>
-					</div>
-					<textarea @keyup.enter="sendMessage" placeholder="輸入訊息" name="" id="chatBox" v-model="userInput"
-						class="input-field"></textarea>
-					<div class="message-btn">
-						<button class="btn">
-							<i class="fa fa-plus-circle"></i>加入圖片
-						</button>
-						<button @click="sendMessage" class="btn">傳送</button>
-					</div>
+	<section class="member-message">
+		<div class="message-box">
+			<div class="chat-box">
+				<nav class="message-nav">Customer Service</nav>
+				<div class="chatContent">
+					<ul>
+						<li v-for="(message, index) in messages" :key="index" :class="message.isUser ? 'umsg' : 'smsg'"
+							class="message-item">
+							{{ message.text }}
+						</li>
+					</ul>
+				</div>
+				<textarea @keyup.enter="sendMessage" placeholder="輸入訊息" id="chatBox" v-model="userInput"></textarea>
+				<div class="message-btn">
+					<button class="btn">
+						<i class="fa fa-plus-circle"></i>加入圖片
+					</button>
+					<button @click="sendMessage" class="btn">傳送</button>
 				</div>
 			</div>
-		</section>
-	</body>
+		</div>
+	</section>
 </template>
 
 <script setup>
@@ -116,7 +112,11 @@ const sendMessage = () => {
 }
 
 .message-nav {
-	background-color: #f9f9f9;
+	background-color: #ccc;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .chat-box {
@@ -162,6 +162,7 @@ const sendMessage = () => {
 	font-size: 14px;
 	resize: none;
 	padding: 10px;
+	margin: 5px;
 }
 
 @media (width<=768px) {
