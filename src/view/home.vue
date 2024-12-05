@@ -19,7 +19,7 @@
                     </v-list>
                 </v-menu>
 
-                <v-toolbar-title class="text-h6" text="吉伊卡哇03223"></v-toolbar-title>
+                <v-toolbar-title class="text-h6" text="吉伊卡哇"></v-toolbar-title>
 
                 <v-menu>
                     <template v-slot:activator="{ props }">
