@@ -1,6 +1,6 @@
 <template>
     <v-card class="mx-auto" max-width="768">
-        <v-img color="surface-variant" height="300" src="/public/cardkawa.webp" cover>
+        <v-img color="surface-variant" height="300" src="/cardkawa.webp" cover>
             <v-toolbar color="transparent">
 
                 <v-menu :location="location">
@@ -8,7 +8,7 @@
                         <v-btn icon="$menu" v-bind="props"></v-btn>
                     </template>
                     <v-list>
-                        <v-list-item prepend-avatar="/public/kawa.png" subtitle="Kawa@google.com" title="Chiikawa">
+                        <v-list-item prepend-avatar="/kawa.png" subtitle="Kawa@google.com" title="Chiikawa">
                         </v-list-item>
                         <v-list-item v-for="(item, i) in items" :key="i" :value="item" color="primary">
                             <template v-slot:prepend>
