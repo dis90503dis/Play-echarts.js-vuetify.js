@@ -7,8 +7,7 @@ else
     against=$(git hash-object -t tree /dev/null)
 fi
 # 定義路徑
-WEB_VERSION_FILE="clients/web/public/application_version.txt"
-BACKEND_VERSION_FILE="servers/backed/application_version.txt"
+WEB_VERSION_FILE="/public/application_version.txt"
 # 讀取現有版本資訊
 if [ -f "$WEB_VERSION_FILE" ]; then
     APP_SHORT_VER=$(awk -F '_' '{print $NF}' "$WEB_VERSION_FILE")
