@@ -1,1 +1,1 @@
-Play-echarts.js-vuetify.js_1.5
+Play-echarts.js-vuetify.js_1.6
