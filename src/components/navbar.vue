@@ -19,7 +19,7 @@ import '@mdi/font/css/materialdesignicons.css'
 const router = useRouter();
 
 const navTitle = ref([
-	{ name: '首頁', src: '/home' },
+	{ name: 'v-menu v-card', src: '/home' },
 	{ name: 'Vuetify.js  登入談窗以及全屏Loading', src: '/vuetifyjs' },
 	{ name: '關於我們', src: '/about' },
 	{ name: 'ChatBox', src: '/chatbox' },
