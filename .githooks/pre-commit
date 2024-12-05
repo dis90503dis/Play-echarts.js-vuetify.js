@@ -1,0 +1,43 @@
+#!/bin/sh
+echo "Pre-commit hook triggered"
+# 檢查是否有 HEAD (判斷是否是初次提交)
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+    against=HEAD
+else
+    against=$(git hash-object -t tree /dev/null)
+fi
+# 定義路徑
+WEB_VERSION_FILE="clients/web/public/application_version.txt"
+BACKEND_VERSION_FILE="servers/backed/application_version.txt"
+# 讀取現有版本資訊
+if [ -f "$WEB_VERSION_FILE" ]; then
+    APP_SHORT_VER=$(awk -F '_' '{print $NF}' "$WEB_VERSION_FILE")
+else
+    APP_SHORT_VER="1.0"
+fi
+# 校驗版本格式
+if ! echo "$APP_SHORT_VER" | grep -qE '^[0-9]+\.[0-9]+$'; then
+    echo "Error: 版本格式錯誤，應為 '主版本號.次版本號'。"
+    exit 1
+fi
+# 解析主版本與次版本
+MAIN_VERSION=$(echo "$APP_SHORT_VER" | cut -d '.' -f 1)
+SUB_VERSION=$(echo "$APP_SHORT_VER" | cut -d '.' -f 2)
+# 次版本遞增
+NEW_SUB_VERSION=$((SUB_VERSION + 1))
+NEW_APP_SHORT_VER="${MAIN_VERSION}.${NEW_SUB_VERSION}"
+# 獲取儲存庫名稱
+REPO_NAME=$(basename -s .git $(git remote get-url origin) 2>/dev/null)
+if [ $? -ne 0 ]; then
+    echo "Error: 無法獲取儲存庫名稱，請檢查遠端設置！"
+    exit 1
+fi
+# 更新版本檔案
+VERSION_TEXT="${REPO_NAME}_${NEW_APP_SHORT_VER}"
+echo "$VERSION_TEXT" > $WEB_VERSION_FILE
+echo "$VERSION_TEXT" > $BACKEND_VERSION_FILE
+# 加入版本檔案到提交中
+git add $WEB_VERSION_FILE
+git add $BACKEND_VERSION_FILE
+# 檢查是否有空白字元錯誤
+exec git diff-index --check --cached $against --
